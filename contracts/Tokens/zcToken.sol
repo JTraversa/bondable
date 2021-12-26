@@ -24,7 +24,7 @@ contract zcToken {
 
     uint8 public immutable decimals;
 
-    uint128 public immutable maturity;
+    uint256 public immutable maturity;
 
     address public underlying;
 
@@ -61,7 +61,7 @@ contract zcToken {
         string memory _name,
         string memory _symbol,
         uint8 _decimals,
-        uint128 _maturity,
+        uint256 _maturity,
         address _underlying
     ) {
         name = _name;

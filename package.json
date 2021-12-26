@@ -1,0 +1,49 @@
+{
+  "name": "@jtraversa/bondable",
+  "author": {
+    "name": "Julian Traversa"
+  },
+  "description": "📦 A smart contract that issues debt in the form of unbacked zero-coupon bonds.",
+  "version": "1.0.1",
+  "homepage": "https://uniswap.org",
+  "keywords": [
+    "uniswap",
+    "erc20"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jtraversa/bondable"
+  },
+  "files": [
+    "build"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@openzeppelin/contracts": "3.1.0",
+    "@types/chai": "^4.2.6",
+    "@types/mocha": "^5.2.7",
+    "axios": "^0.20.0",
+    "chai": "^4.2.0",
+    "commander": "^6.1.0",
+    "ethereum-waffle": "^3.0.0",
+    "ethereumjs-util": "^7.0.4",
+    "mocha": "^6.2.2",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "solc": "^0.8.11",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "scripts": {
+    "precompile": "rimraf ./build/",
+    "compile": "waffle",
+    "pretest": "yarn compile",
+    "test": "mocha",
+    "prepublishOnly": "yarn test"
+  },
+  "dependencies": {
+    "yarn": "^1.22.17"
+  }
+}

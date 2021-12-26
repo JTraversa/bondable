@@ -1,0 +1,15 @@
+{
+  "abi": [],
+  "evm": {
+    "bytecode": {
+      "object": "60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220ea952f525af8c9302348557267932883dad470867976614a2703c97578dcf04d64736f6c634300080b0033",
+      "sourceMap": "477:5388:2:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;477:5388:2;;;;;;;;;;;;;;;;;"
+    },
+    "deployedBytecode": {
+      "object": "73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220ea952f525af8c9302348557267932883dad470867976614a2703c97578dcf04d64736f6c634300080b0033",
+      "sourceMap": "477:5388:2:-:0;;;;;;;;"
+    }
+  },
+  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"Modified from Gnosis (https://github.com/gnosis/gp-v2-contracts/blob/main/src/contracts/libraries/GPv2SafeERC20.sol)\",\"details\":\"Use with caution! Some functions in this library knowingly create dirty bits at the destination of the free memory pointer.\",\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"Safe ETH and ERC20 transfer library that gracefully handles missing return values.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Utils/SafeTransferLib.sol\":\"SafeTransferLib\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Tokens/ERC20.sol\":{\"keccak256\":\"0x5fe11948919a7fab36dcbfad6583d508bd78ac5572c51043a75e73e8df2b77b8\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://494801be827dd0dbedc8dacc9aecf229f49849b2ad4bb21c36a2f8d582dcc48b\",\"dweb:/ipfs/QmWv2jA6sTEvRCuV8KEkZXt7L9V5JwwoJERG6dLr21f3Kq\"]},\"contracts/Utils/SafeTransferLib.sol\":{\"keccak256\":\"0xe0728cbb02760c3929582db595f885f60e19c6311f371f05bb5bb7be3ace8396\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://4b8192a6f9962f7888fefc51d3b57028de146ff466b4d830832627bbd74f50b0\",\"dweb:/ipfs/QmVgUaxQ1oSaazbRskd8TpWxf2hqbuFEEzzscYYbCVwsoW\"]}},\"version\":1}",
+  "bytecode": "60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220ea952f525af8c9302348557267932883dad470867976614a2703c97578dcf04d64736f6c634300080b0033"
+}

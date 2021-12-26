@@ -30,7 +30,7 @@ contract Bondable {
     /// @notice A mapping of markets that have been created
     /// address the address of the underlying token
     /// uint256 the maturity (unix timestamp) of the market
-    mapping (address => mapping (uint128 => Market)) public markets;
+    mapping (address => mapping (uint256 => Market)) public markets;
     
     event marketCreated(address indexed underlying, uint256 indexed maturity, address indexed bond, uint256 maximumDebt, string name);
 
@@ -50,7 +50,7 @@ contract Bondable {
     /// @param decimals the number of decimals in the underlying token
     /// @param price the issuance price on the bonds (a decimal stored as a base 1e18 uint256, issuance accurate to 8 digits precision)
     /// @param maximumDebt the maximum amount of debt/bonds to allow to be minted
-    function createMarket(address underlying, uint128 maturity, uint256 maximumDebt, uint256 price, uint8 decimals, string memory name, string memory symbol) external onlyAdmin() returns (address) {
+    function createMarket(address underlying, uint256 maturity, uint256 maximumDebt, uint256 price, uint8 decimals, string memory name, string memory symbol) external onlyAdmin() returns (address) {
         
         // check if the market already exists
         require(markets[underlying][maturity].maximumDebt == 0, 'Market already exists');
@@ -71,7 +71,7 @@ contract Bondable {
     /// @param underlying the address of the underlying token being lent
     /// @param maturity the maturity of the market
     /// @param amount the amount of underlying tokens to lend
-    function mint(address underlying, uint128 maturity, uint256 amount) external returns (uint256) {
+    function mint(address underlying, uint256 maturity, uint256 amount) external returns (uint256) {
 
         Market memory _market = markets[underlying][maturity];
 
@@ -104,7 +104,7 @@ contract Bondable {
     /// @param underlying the address of the underlying token being redeemed
     /// @param maturity the maturity of the market being redeemed
     /// @param amount the amount of underlying tokens to redeem and bond tokens to burn
-    function redeem(address underlying, uint128 maturity, uint256 amount) external returns (uint256) {
+    function redeem(address underlying, uint256 maturity, uint256 amount) external returns (uint256) {
         
         Market memory _market = markets[underlying][maturity];
 
@@ -134,7 +134,7 @@ contract Bondable {
     /// @param underlying the address of the underlying token being paid
     /// @param maturity the maturity of the market being redeemed
     /// @param amount the amount of underlying token debt to pay
-    function repay(address underlying, uint128 maturity, uint256 amount) external returns (uint256) {
+    function repay(address underlying, uint256 maturity, uint256 amount) external returns (uint256) {
 
         Market memory _market = markets[underlying][maturity];
 
