@@ -5,6 +5,8 @@ pragma solidity >= 0.8.4;
 import "./Utils/SafeTransferLib.sol";
 import './Tokens/zcToken.sol';
 
+/// A factory to issue un-backed debt at a provided price (discount) in the form of zero-coupon bonds.
+/// Utilizes solmate ERC20 & SafeTransfer, and intended to be used in tandem with @yieldprotocol/yieldspace-v2
 contract Bondable {
 
     address public admin;
