@@ -162,7 +162,7 @@ contract Bondable {
 
         admin = newAdmin;
 
-        return (admin);
+        return (newAdmin);
     }
 
     modifier onlyAdmin() {
