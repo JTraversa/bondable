@@ -16,7 +16,7 @@ contract Bondable {
     /// @param repaidDebt The amounf of debt that the has been repaid to the market (must repay before it can be redeemed).
     /// @param redeemedDebt The amount of debt that has been redeemed back into underlying (after maturity).
     /// @param bond The address of the issued zero-coupon bond contract.
-    /// @param name The name of the bond market (e.g. TRIBE-MAR or TRIBE-1648728318)
+    /// @param name The name of the bond market (e.g. TRIBE-MAR, TRIBE-1648728318, or Tetranode-TRIBE-MAR for an indivudalized bond)
     struct Market {
         uint256 maximumDebt;
         uint256 price;
