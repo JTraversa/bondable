@@ -5,8 +5,8 @@ pragma solidity >= 0.8.4;
 import "./Utils/SafeTransferLib.sol";
 import './Tokens/zcToken.sol';
 
-/// A factory to issue un-backed debt at a provided price (discount) in the form of zero-coupon bonds.
-/// Utilizes solmate ERC20 & SafeTransfer, and intended to be used in tandem with @yieldprotocol/yieldspace-v2
+// A factory to issue un-backed debt at a provided price (discount) in the form of zero-coupon bonds.
+// Utilizes solmate ERC20 & SafeTransfer, and intended to be used in tandem with @yieldprotocol/yieldspace-v2
 contract Bondable {
 
     address public admin;
@@ -56,13 +56,10 @@ contract Bondable {
         
         // check if the market already exists
         require(markets[underlying][maturity].maximumDebt == 0, 'Market already exists');
-
         // create the bond token
         address bondAddress = address(new zcToken(name, symbol, decimals, maturity, underlying));
-        
         // create the market
         markets[underlying][maturity] = Market(maximumDebt, price, 0, 0, 0, bondAddress, name);
-        
         // emit the event
         emit marketCreated(underlying, maturity, bondAddress, maximumDebt, name);
         
@@ -120,14 +117,14 @@ contract Bondable {
         // burn the bond
         zcToken(_market.bond).burn(msg.sender, amount);
 
-        // transfer out underlying
-        SafeTransferLib.safeTransfer(ERC20(underlying), msg.sender, amount);
-
         // update the market's redeemed debt
         markets[underlying][maturity].redeemedDebt = newRedeemedDebt;
 
         // emit the event
         emit bondRedeemed(underlying, maturity, _market.bond, amount, newRedeemedDebt);
+
+        // transfer out underlying
+        SafeTransferLib.safeTransfer(ERC20(underlying), msg.sender, amount);
         
         return (amount);
     }
@@ -144,14 +141,14 @@ contract Bondable {
         // ensure market is not overpaying its debts
         require(newRepaidDebt <= _market.mintedDebt,'can not repay more debt than is minted');
 
-        // transfer in underlying 
-        SafeTransferLib.safeTransfer(ERC20(underlying), msg.sender, amount);
-
         // update the market's repaid debt
         markets[underlying][maturity].repaidDebt = newRepaidDebt;
 
         // emit the event
         emit bondRepaid(underlying, maturity, _market.bond, amount, newRepaidDebt);
+
+        // transfer in underlying 
+        SafeTransferLib.safeTransfer(ERC20(underlying), msg.sender, amount);
 
         return (amount);
     }
