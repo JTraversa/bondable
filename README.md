@@ -1,2 +1,2 @@
 # bondable
- An optimized debt issuance mechanism in Solidity
+ An "optimized" debt issuance mechanism in Solidity
