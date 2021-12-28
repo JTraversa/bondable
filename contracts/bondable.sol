@@ -76,23 +76,17 @@ contract Bondable {
 
         // check market maturity
         require(block.timestamp <= maturity,'bond has already matured');       
-
         // transfer in underlying
         SafeTransferLib.safeTransferFrom(ERC20(underlying), msg.sender, address(this), amount);
-
         // calculate amount of debt to mint (modifier = 1/price)
         uint256 mintAmount = amount * (1e26 / _market.price) / 1e8;
-
         // mint the bond
         zcToken(_market.bond).mint(msg.sender, mintAmount);
-
         // require that maximum debt has not been exceeded
         uint256 newDebt = _market.mintedDebt + mintAmount;
         require(newDebt <= _market.maximumDebt,'maximum debt exceeded');
-
         // update the market
         markets[underlying][maturity].mintedDebt = newDebt;
-
         // emit the event
         emit bondMinted(underlying, maturity, _market.bond, amount, newDebt);
 
@@ -106,23 +100,17 @@ contract Bondable {
     function redeem(address underlying, uint256 maturity, uint256 amount) external returns (uint256) {
         
         Market memory _market = markets[underlying][maturity];
-
         // check market maturity
         require(block.timestamp >= maturity,'bond maturity has not been reached');
-
         uint256 newRedeemedDebt = _market.redeemedDebt + amount;
         // ensure market has enough repaid debt to redeem (first come first served)
         require(newRedeemedDebt <= _market.repaidDebt,'total market claim exceeds debt repaid');
-        
         // burn the bond
         zcToken(_market.bond).burn(msg.sender, amount);
-
         // update the market's redeemed debt
         markets[underlying][maturity].redeemedDebt = newRedeemedDebt;
-
         // emit the event
         emit bondRedeemed(underlying, maturity, _market.bond, amount, newRedeemedDebt);
-
         // transfer out underlying
         SafeTransferLib.safeTransfer(ERC20(underlying), msg.sender, amount);
         
@@ -136,20 +124,16 @@ contract Bondable {
     function repay(address underlying, uint256 maturity, uint256 amount) external returns (uint256) {
 
         Market memory _market = markets[underlying][maturity];
-
         uint256 newRepaidDebt = _market.repaidDebt + amount;
         // ensure market is not overpaying its debts
         require(newRepaidDebt <= _market.mintedDebt,'can not repay more debt than is minted');
-
         // update the market's repaid debt
         markets[underlying][maturity].repaidDebt = newRepaidDebt;
-
         // emit the event
         emit bondRepaid(underlying, maturity, _market.bond, amount, newRepaidDebt);
-
         // transfer in underlying 
         SafeTransferLib.safeTransfer(ERC20(underlying), msg.sender, amount);
-
+        
         return (amount);
     }
 
