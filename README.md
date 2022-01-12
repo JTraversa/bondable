@@ -11,7 +11,7 @@
 ```
 ---------------------
 
-In order to reduce the friction of launching and attracting liquidity to debt markets, borrowers can utilize bondable to issue, trade, and redeem arbitrary uncollateralized debt.
+In order to reduce the friction of launching and attracting liquidity to debt markets, borrowers/lenders can utilize bondable to issue, trade, and redeem arbitrary uncollateralized debt.
 
 A when launching a debt market, the borrower simply specifies their bond issuance rate, and maximum debt capacity.
 
