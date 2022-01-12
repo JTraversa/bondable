@@ -21,6 +21,6 @@ Debt is uncollateralized and backed solely by reputation.
 
 ---------------------
 
-_These contracts have not been audited. Use at your own discretion. _
+_These contracts have not been audited. Use at your own discretion._
 
 ---------------------
