@@ -2,12 +2,13 @@
  An "optimized" debt issuance mechanism in Solidity
 
 ---------------------
+```
  _                     _       _     _      
 | |__   ___  _ __   __| | __ _| |__ | | ___ 
 | '_ \ / _ \| '_ \ / _` |/ _` | '_ \| |/ _ \
 | |_) | (_) | | | | (_| | (_| | |_) | |  __/
 |_.__/ \___/|_| |_|\__,_|\__,_|_.__/|_|\___|
-
+```
 ---------------------
 
 In order to reduce the friction of launching and attracting liquidity to debt markets, borrowers can utilize bondable to issue, trade, and redeem arbitrary uncollateralized debt.
